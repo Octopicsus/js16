@@ -2,8 +2,6 @@ const gulp = require("gulp");
 const sass = require("sass");
 const gulpSass = require("gulp-sass");
 const sourceMaps = require("gulp-sourcemaps");
-const minifyJs = require("gulp-uglify-es").default;
-const concatJS = require("gulp-concat");
 const gulpWebpack = require("webpack-stream");
 const plumber = require("gulp-plumber");
 
@@ -46,7 +44,7 @@ async function watcher() {
   gulp.watch(SRC_JS_FOLDER, copyJs);
 }
 
-// -- PIPES
+// -- PIPE
 
 async function copyHtml() {
   return gulp.src(SRC_HTML_FOLDER).pipe(gulp.dest(BUILD_FOLDER));
@@ -82,6 +80,7 @@ async function copyJs() {
 async function copyScss() {
   return gulp
     .src(SRC_SCSS_FOLDER)
+    .pipe(plumber())
     .pipe(sourceMaps.init())
     .pipe(scss({ style: "compressed" }))
     .pipe(sourceMaps.write("./"))
