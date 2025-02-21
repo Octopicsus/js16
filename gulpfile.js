@@ -1,11 +1,20 @@
-const gulp = require("gulp");
-const sass = require("sass");
-const gulpSass = require("gulp-sass");
-const sourceMaps = require("gulp-sourcemaps");
-const gulpWebpack = require("webpack-stream");
-const plumber = require("gulp-plumber");
-const autoprefixer = require("gulp-autoprefixer");
-const livereload = require("gulp-livereload");
+// const gulp = require("gulp");
+// const sass = require("sass");
+// const gulpSass = require("gulp-sass");
+// const sourceMaps = require("gulp-sourcemaps");
+// const gulpWebpack = require("webpack-stream");
+// const plumber = require("gulp-plumber");
+// import autoprefixer from 'gulp-autoprefixer';
+// const livereload = require("gulp-livereload");
+
+import gulp from "gulp";
+import sass from "sass";
+import gulpSass from "gulp-sass";
+import sourceMaps from "gulp-sourcemaps";
+import gulpWebpack from "webpack-stream";
+import plumber from "gulp-plumber";
+import autoprefixer from "gulp-autoprefixer";
+import livereload from "gulp-livereload";
 
 const scss = gulpSass(sass);
 
