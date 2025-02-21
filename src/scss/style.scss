@@ -8,8 +8,17 @@
     src        : url('../fonts/Orbitron-Black.ttf') format('truetype');
 }
 
+
+
 ::-webkit-scrollbar {
-    width: 0;
+    width  : 0px;
+    height : 0px;
+    display: none;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width   : none;
 }
 
 * {
@@ -232,4 +241,3 @@ footer {
     background-repeat  : no-repeat;
     background-position: center;
 }
-
