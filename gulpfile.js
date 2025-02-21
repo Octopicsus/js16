@@ -4,6 +4,8 @@ const gulpSass = require("gulp-sass");
 const sourceMaps = require("gulp-sourcemaps");
 const gulpWebpack = require("webpack-stream");
 const plumber = require("gulp-plumber");
+const autoprefixer = require("gulp-autoprefixer");
+const livereload = require("gulp-livereload");
 
 const scss = gulpSass(sass);
 
@@ -83,6 +85,12 @@ async function copyScss() {
     .pipe(plumber())
     .pipe(sourceMaps.init())
     .pipe(scss({ style: "compressed" }))
+    .pipe(
+      autoprefixer({
+        cascade: false,
+      })
+    )
     .pipe(sourceMaps.write("./"))
-    .pipe(gulp.dest(CSS_FOLDER));
+    .pipe(gulp.dest(CSS_FOLDER))
+    .pipe(livereload());
 }
